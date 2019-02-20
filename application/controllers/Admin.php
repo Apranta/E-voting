@@ -62,6 +62,15 @@ class Admin extends MY_Controller {
         }
     }
 
+    public function finalis()
+    {
+        $this->load->model('Data_finalis_m');
+        $this->data['finalis'] = $this->Data_finalis_m->get();
+        $this->data['content'] = 'admin/finalis';
+        $this->data['title'] = 'Admin | Finalis';
+        $this->load->view('admin/template/template',$this->data);
+    }
+
 }
 
 /* End of file Admin.php */

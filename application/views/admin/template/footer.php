@@ -4,8 +4,10 @@
     <script src="<?= base_url() ?>assets/js/bootstrap.min.js"></script>
     <script src="<?= base_url() ?>assets/js/mdb.min.js"></script>
     <script src="<?= base_url() ?>assets/js/addons/datatables.min.js"></script>
+    <script src="<?= base_url() ?>assets/fa/js/all.min.js"></script>
     <script>
         $(document).ready(function() {
+            <?php if($content == 'main') { ?>
             key_list();
 
             function key_list() {
@@ -61,6 +63,9 @@
                     }
                 });
             });
+            <?php } else { ?>
+            $('#tabel').DataTable();
+            <?php } ?>
         }); 
     </script>
 </body>

@@ -4,11 +4,11 @@
                 <img src="<?= base_url() ?>assets/img/pbgf.png" class="img-fluid">
             </a>
             <div class="list-group list-group-flush">
-                <a href="<?= site_url('user') ?>" class="list-group-item font-weight-normal list-group-item-action waves-effect active">
+                <a href="<?= site_url('admin') ?>" class="list-group-item font-weight-normal list-group-item-action waves-effect active">
                     <i class="fas fa-home mr-3"></i> Dashboard
                 </a>
-                <a href="<?= site_url('user/setting') ?>" class="list-group-item font-weight-normal list-group-item-action waves-effect">
-                    <i class="fas fa-cog mr-3"></i>Setting</a>
+                <a href="<?= site_url('admin/finalis') ?>" class="list-group-item font-weight-normal list-group-item-action waves-effect">
+                    <i class="fas fa-cog mr-3"></i>Daftar Finalis</a>
                 <a href="<?= site_url('logout') ?>" class="list-group-item font-weight-normal list-group-item-action waves-effect">
                     <i class="fas fa-sign-out-alt mr-3"></i>Logout</a>
             </div>
