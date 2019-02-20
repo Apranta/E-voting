@@ -49,7 +49,11 @@ class Login extends MY_Controller {
     {
         if($this->POST('username') && $this->POST('password')) {
             $this->load->model('admin_m');
-            if($this->admin_m->cek_login(array('username' => $this->POST('username'), 'password' => $this->POST('username')))) {
+            if($this->admin_m->cek_login(array('username' => $this->POST('username'), 'password' => $this->POST('password')))) {
+                redirect('login');
+                exit;
+            } else {
+                $this->session->set_flashdata('msg', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Username/Password</strong> Salah<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 redirect('login');
                 exit;
             }

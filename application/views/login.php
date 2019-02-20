@@ -29,6 +29,7 @@
                 <div class="card rounded-0">
                     <div class="card-header" style="background-color: gold"></div>
                     <div class="card-body py-4">
+                        <?= $this->session->flashdata('msg') ?>
                         <?= form_open('login') ?>
                         <div class="input-group mb-4">
                             <input type="text" placeholder="Username" name="username" id="username" class="form-control rounded-0 grey lighten-3">

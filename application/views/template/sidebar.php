@@ -20,3 +20,4 @@
                     <i class="fas fa-sign-out-alt mr-3"></i>Logout</a>
             </div>
         </div>
+    </header>

@@ -2,3 +2,24 @@ body {
     background-image: url('../img/background.png');
     background-size: cover;
 }
+
+.nav-link, .list-group-item {
+    color: gold;
+    background-color: transparent;
+    border: none;
+}
+
+.list-group-item {
+    margin-bottom: 10px;
+}
+
+.list-group-item.active {
+    color: #fafafa;
+    background-color: gold;
+}
+
+.list-group-item:hover {
+    color: #fafafa;
+    background-color: yellow;
+    border-radius: 5px;
+}
