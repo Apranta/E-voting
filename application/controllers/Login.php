@@ -6,28 +6,29 @@ class Login extends MY_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('log_m');
         $this->data['username'] = $this->session->userdata('username');
         $this->data['id_role']  = $this->session->userdata('id_role');
         echo $this->data['id_role'];
         if (isset($this->data['username'], $this->data['id_role']))
         {
-            // $ipaddress = '';
-            // if (getenv('HTTP_CLIENT_IP')) {
-            //     $ipaddress = getenv('HTTP_CLIENT_IP');
-            // } else if(getenv('HTTP_X_FORWARDED_FOR')) {
-            //     $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
-            // } else if(getenv('HTTP_X_FORWARDED')) {
-            //     $ipaddress = getenv('HTTP_X_FORWARDED');
-            // } else if(getenv('HTTP_FORWARDED_FOR')) {
-            //     $ipaddress = getenv('HTTP_FORWARDED_FOR');
-            // } else if(getenv('HTTP_FORWARDED')) {
-            //     $ipaddress = getenv('HTTP_FORWARDED');
-            // } else if(getenv('REMOTE_ADDR')) {
-            //     $ipaddress = getenv('REMOTE_ADDR');
-            // } else {
-            //     $ipaddress = 'UNKNOWN';
-            // }
-            // $this->Log_m->insert(array('username' => $this->data['username'], 'ip_address' => $ipaddress, 'date' => mdate('%Y-%m-%d %H:%i:%s', now('Asia/Jakarta'))));
+            $ipaddress = '';
+            if (getenv('HTTP_CLIENT_IP')) {
+                $ipaddress = getenv('HTTP_CLIENT_IP');
+            } else if(getenv('HTTP_X_FORWARDED_FOR')) {
+                $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+            } else if(getenv('HTTP_X_FORWARDED')) {
+                $ipaddress = getenv('HTTP_X_FORWARDED');
+            } else if(getenv('HTTP_FORWARDED_FOR')) {
+                $ipaddress = getenv('HTTP_FORWARDED_FOR');
+            } else if(getenv('HTTP_FORWARDED')) {
+                $ipaddress = getenv('HTTP_FORWARDED');
+            } else if(getenv('REMOTE_ADDR')) {
+                $ipaddress = getenv('REMOTE_ADDR');
+            } else {
+                $ipaddress = 'UNKNOWN';
+            }
+            $this->log_m->insert(array('ip_address' => $ipaddress, 'waktu' => mdate('%Y-%m-%d %H:%i:%s', now('Asia/Jakarta'))));
             switch ($this->data['id_role'])
             {
                 case 3:
@@ -46,6 +47,13 @@ class Login extends MY_Controller {
 
     public function index()
     {
+        if($this->POST('username') && $this->POST('password')) {
+            $this->load->model('admin_m');
+            if($this->admin_m->cek_login(array('username' => $this->POST('username'), 'password' => $this->POST('username')))) {
+                redirect('login');
+                exit;
+            }
+        }
         $this->data['title'] = 'Login | ';
         $this->load->view('login', $this->data);
     }

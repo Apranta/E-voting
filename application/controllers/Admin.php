@@ -15,13 +15,16 @@ class Admin extends MY_Controller {
             $this->session->unset_userdata('status');
             $this->flashmsg('<i class="fa fa-warning"></i> You must login first!', 'warning');
             redirect('login');
+            exit;
         }
     }
     
 
     public function index()
     {
-        
+        $this->data['title'] ='Admin | ';
+        $this->data['content'] = 'admin/main';
+        $this->load->view('admin/template/template', $this->data);
     }
 
 }

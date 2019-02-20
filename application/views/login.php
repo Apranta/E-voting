@@ -29,13 +29,15 @@
                 <div class="card rounded-0">
                     <div class="card-header" style="background-color: gold"></div>
                     <div class="card-body py-4">
+                        <?= form_open('login') ?>
                         <div class="input-group mb-4">
                             <input type="text" placeholder="Username" name="username" id="username" class="form-control rounded-0 grey lighten-3">
                         </div>
                         <div class="input-group mb-4">
                             <input type="password" placeholder="Password" name="password" id="password" class="form-control rounded-0 grey lighten-3">
                         </div>
-                        <button class="btn btn-md btn-warning m-0 w-100">Masuk</button>
+                        <button class="btn btn-md btn-outline-warning m-0 w-100">Masuk</button>
+                        <?= form_close() ?>
                     </div>
                     <div class="card-footer" style="background-color: gold"></div>
                 </div>
