@@ -24,6 +24,7 @@ class Admin extends MY_Controller {
     {
         $this->data['title'] ='Admin | ';
         $this->data['content'] = 'admin/main';
+        $this->data['active'] = 0;
         $this->load->view('admin/template/template', $this->data);
     }
 
@@ -68,6 +69,42 @@ class Admin extends MY_Controller {
         $this->data['finalis'] = $this->Data_finalis_m->get();
         $this->data['content'] = 'admin/finalis';
         $this->data['title'] = 'Admin | Finalis';
+        $this->data['active'] = 1;
+        $this->load->view('admin/template/template',$this->data);
+    }
+
+    public function input_finalis(){
+        $this->load->model('Data_finalis_m');
+        if($this->POST('submit'))
+        {
+            $config['upload_path'] = './assets/file/';
+            $config['allowed_types'] = 'jpg|png|gif';
+            $this->upload->initialize($config);
+            $this->upload->do_upload('gambar');
+            $data = $this->upload->data();
+            $gambar = file_get_contents($data['full_path']);
+            unlink($data['full_path']);
+            $data = array(
+                'id_finalis' => $this->POST('id_finalis'),
+                'nama' => $this->POST('nama'),
+                'jurusan' => $this->POST('jurusan'),
+                'jk' => $this->POST('jk'),
+                'foto' => $gambar,
+                'jml_vote' => 0,
+            );
+            $cek = $this->Data_finalis_m->get("id_finalis = ".$this->POST('id_finalis'));
+            if(count($cek)>0){
+                $this->session->set_flashdata('msg', '<div class="alert alert-success alert-dismissible fade show" role="alert">No Finalis yang disimpan sudah ada!!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            }else{
+                $this->Data_finalis_m->insert($data);
+                $this->session->set_flashdata('msg', '<div class="alert alert-success alert-dismissible fade show" role="alert">Berhasil Disimpan!!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                redirect('Admin/finalis');
+            }
+            
+        }
+        $this->data['content'] = 'admin/input_finalis';
+        $this->data['title'] = 'Admin | Input Finalis';
+        $this->data['active'] = 1;
         $this->load->view('admin/template/template',$this->data);
     }
 

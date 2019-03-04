@@ -4,10 +4,10 @@
                 <img src="<?= base_url() ?>assets/img/pbgf.png" class="img-fluid">
             </a>
             <div class="list-group list-group-flush">
-                <a href="<?= site_url('admin') ?>" class="list-group-item font-weight-normal list-group-item-action waves-effect active">
+                <a href="<?= site_url('admin') ?>" class="list-group-item font-weight-normal list-group-item-action waves-effect <?php if($active == 0) echo "active"; ?>">
                     <i class="fas fa-home mr-3"></i> Dashboard
                 </a>
-                <a href="<?= site_url('admin/finalis') ?>" class="list-group-item font-weight-normal list-group-item-action waves-effect">
+                <a href="<?= site_url('admin/finalis') ?>" class="list-group-item font-weight-normal list-group-item-action waves-effect <?php if($active == 1) echo "active"; ?>">
                     <i class="fas fa-cog mr-3"></i>Daftar Finalis</a>
                 <a href="<?= site_url('logout') ?>" class="list-group-item font-weight-normal list-group-item-action waves-effect">
                     <i class="fas fa-sign-out-alt mr-3"></i>Logout</a>

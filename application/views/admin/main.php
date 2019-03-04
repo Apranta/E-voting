@@ -7,9 +7,11 @@
                     <div class="col-md-3 mb-3">
                         <select name="jml" class="custom-select">
                             <option disabled selected>Pilih Jumlah</option>
-                            <option value="1">1</option>
                             <option value="5">5</option>
-                            <option value="10">10</option>
+                            <option value="12">10</option>
+                            <option value="25">20</option>
+                            <option value="60">50</option>
+                            <option value="120">100</option>
                         </select>
                     </div>
                     <div class="col-md-4">

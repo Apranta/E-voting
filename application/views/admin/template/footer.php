@@ -7,7 +7,7 @@
     <script src="<?= base_url() ?>assets/fa/js/all.min.js"></script>
     <script>
         $(document).ready(function() {
-            <?php if($content == 'main') { ?>
+            <?php if($content == 'admin/main') { ?>
             key_list();
 
             function key_list() {
