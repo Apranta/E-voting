@@ -3,7 +3,7 @@
     <div class="container py-5">
     <?= $this->session->flashdata('msg') ?>
             <!-- Basic Validation -->
-            <form action="<?=site_url('Admin/input_finalis')?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+        <form action="<?=site_url('Admin/input_finalis')?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card my-5">
@@ -33,7 +33,7 @@
                             <div class="md-form form-group">
                                 <div class="form-line">
                                     <input type="text" name="jurusan"   class="form-control"  required>
-                                    <label class="form-label">jurusan</label>
+                                    <label class="form-label">Jurusan</label>
                                 </div>
                             </div>
                             <!-- •••••••••••• -->

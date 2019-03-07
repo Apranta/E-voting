@@ -1,10 +1,10 @@
 body {
     background-image: url('../img/background.png');
-    background-size: cover;
+    background-size: contain;
 }
 
 .nav-link, .list-group-item {
-    color: gold;
+    color: #f1d565;
     background-color: transparent;
     border: none;
 }
@@ -14,12 +14,12 @@ body {
 }
 
 .list-group-item.active {
-    color: #fafafa;
-    background-color: gold;
+    color: #0d1a3a;
+    background-color: #f1d565;
 }
 
 .list-group-item:hover {
-    color: #fafafa;
-    background-color: yellow;
+    color: #0d1a3a;
+    background-color: #f1d565;
     border-radius: 5px;
 }

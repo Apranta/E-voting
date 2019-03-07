@@ -77,7 +77,7 @@ class Admin extends MY_Controller {
         $this->load->model('Data_finalis_m');
         if($this->POST('submit'))
         {
-            $config['upload_path'] = './assets/file/';
+            $config['upload_path'] = './assets/';
             $config['allowed_types'] = 'jpg|png|gif';
             $this->upload->initialize($config);
             $this->upload->do_upload('gambar');
@@ -90,7 +90,7 @@ class Admin extends MY_Controller {
                 'jurusan' => $this->POST('jurusan'),
                 'jk' => $this->POST('jk'),
                 'foto' => $gambar,
-                'jml_vote' => 0,
+                'jml_vote' => 0
             );
             $cek = $this->Data_finalis_m->get("id_finalis = ".$this->POST('id_finalis'));
             if(count($cek)>0){
