@@ -2,16 +2,13 @@
     <div style="z-index: 10000;" class="modal fade top" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
         <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
             <div class="modal-content">
-                <div class="modal-body">
-                    <div class="row d-flex justify-content-center align-items-center">
-                        <p class="pt-3 pr-2">We use cookies to improve your website experience</p>
-                        <a type="button" class="btn btn-primary">Learn more <i class="fas fa-book ml-1"></i></a>
-                        <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Ok, thanks</a>
-                    </div>
+                <div class="modal-body text-center">
+                    tes
                 </div>
             </div>
         </div>
     </div>
+
     <header>    
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" style="background: url('<?= base_url() ?>assets/img/background.png'); background-size: cover; border-bottom: 1px solid #f1d565;">
             <div class="container-fluid">
