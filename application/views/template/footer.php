@@ -3,5 +3,12 @@
     <script src="<?= base_url() ?>assets/js/popper.min.js"></script>
     <script src="<?= base_url() ?>assets/js/bootstrap.min.js"></script>
     <script src="<?= base_url() ?>assets/js/mdb.min.js"></script>
+    <script>
+        $(document).on("click", ".open-modal", function () {
+            var Id = $(this).data('id');
+            console.log(Id);
+            document.cookie="profile_viewer_uid="+Id;
+        });
+    </script>
 </body>
 </html>

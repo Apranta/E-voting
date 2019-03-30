@@ -75,6 +75,7 @@ class Admin extends MY_Controller {
 
     public function input_finalis(){
         $this->load->model('Data_finalis_m');
+        
         if($this->POST('submit'))
         {
             $config['upload_path'] = './assets/';
@@ -106,6 +107,55 @@ class Admin extends MY_Controller {
         $this->data['title'] = 'Admin | Input Finalis';
         $this->data['active'] = 1;
         $this->load->view('admin/template/template',$this->data);
+    }
+
+    public function edit_finalis($id)
+    {
+        $this->load->model('Data_finalis_m');
+        $this->data['data'] = $this->Data_finalis_m->get_row(array('id_finalis'=>$id));
+        if($this->POST('submit'))
+        {   
+            $config['upload_path'] = './assets/';
+            $config['allowed_types'] = 'jpg|png|gif';
+            $this->upload->initialize($config);
+            $gambar = $this->data['data']->foto;
+            if($this->upload->do_upload('gambar'))
+            {
+                $data = $this->upload->data();
+                $gambar = file_get_contents($data['full_path']);
+                unlink($data['full_path']);
+            }
+            
+            $data = array(
+                'id_finalis' => $this->POST('id_finalis'),
+                'nama' => $this->POST('nama'),
+                'jurusan' => $this->POST('jurusan'),
+                'jk' => $this->POST('jk'),
+                'foto' => $gambar,
+                'jml_vote' => 0
+            );
+            $cek = $this->Data_finalis_m->get("id_finalis = ".$this->POST('id_finalis')." and id_finalis != ".$id);
+            if(count($cek)>0){
+                $this->session->set_flashdata('msg', '<div class="alert alert-warning alert-dismissible fade show" role="alert">No Finalis yang disimpan sudah ada!!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            }else{
+                $this->Data_finalis_m->update($id,$data);
+                $this->session->set_flashdata('msg', '<div class="alert alert-success alert-dismissible fade show" role="alert">Berhasil Disimpan!!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                redirect('Admin/finalis');
+            }
+        }
+        $this->data['content'] = 'admin/edit_finalis';
+        $this->data['title'] = 'Admin | edit Finalis';
+        $this->data['active'] = 1;
+        // print_r($this->data['data']);
+        $this->load->view('admin/template/template',$this->data);
+    }
+
+    public function hapus_finalis($id)
+    {
+        $this->load->model('Data_finalis_m');
+        $this->Data_finalis_m->delete($id);
+        $this->session->set_flashdata('msg', '<div class="alert alert-success alert-dismissible fade show" role="alert">Data Berhasil Dihapus<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        redirect('Admin/finalis');
     }
 
 }
