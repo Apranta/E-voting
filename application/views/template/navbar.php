@@ -14,6 +14,9 @@
                         <li class="nav-item">
                             <a class="nav-link waves-effect font-weight-normal active" style="color: #f1d565" href="<?= site_url('main') ?>">Dashboard</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect font-weight-normal active" style="color: #f1d565" href="<?= site_url('main/chart') ?>">Chart</a>
+                        </li>
                     </ul>
                 </div>
             </div>

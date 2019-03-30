@@ -89,7 +89,7 @@
                                             </div>
                                         </div>
                                         <input class="btn btn-primary waves-effect" type="submit" name="submit" value="submit">
-                                        <a class="btn btn-warning waves-effect" href="<?=site_url('main/vote')?>">Cancel</a>
+                                        <a class="btn btn-warning waves-effect" href="<?=site_url('main')?>">Cancel</a>
                                     </div>
                                 </div>      
                             </div>

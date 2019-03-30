@@ -7,10 +7,7 @@
                 <a href="<?= site_url('main') ?>" class="list-group-item font-weight-normal list-group-item-action waves-effect <?php if($active == 0) echo "active"; ?>">
                     <i class="fas fa-home mr-3"></i> Dashboard
                 </a>
-                <a href="<?= site_url('main/vote') ?>" class="list-group-item font-weight-normal list-group-item-action waves-effect <?php if($active == 1) echo "active"; ?>">
-                    <i class="fas fa-home mr-3"></i> Vote
-                </a>
-                <a href="<?= site_url('main/vote') ?>" class="list-group-item font-weight-normal list-group-item-action waves-effect <?php if($active == 2) echo "active"; ?>">
+                <a href="<?= site_url('main/chart') ?>" class="list-group-item font-weight-normal list-group-item-action waves-effect <?php if($active == 1) echo "active"; ?>">
                     <i class="fas fa-home mr-3"></i> Chart
                 </a>
             </div>

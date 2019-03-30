@@ -15,13 +15,13 @@ class Main extends MY_Controller {
     {
         $this->data['bujang'] = $this->Data_finalis_m->get(array('jk' => 1));
         $this->data['gadis'] = $this->Data_finalis_m->get(array('jk' => 2));
-        $this->data['title'] ='Home | ';
+        $this->data['title'] ='Home | Vote';
         $this->data['content'] = 'main';
         $this->data['active'] = 0;
         $this->load->view('template/template', $this->data);
     }
 
-    public function vote()
+    public function chart()
     {
         $this->data['bujang'] = $this->Data_finalis_m->get(array('jk' => 1));
         $this->data['gadis'] = $this->Data_finalis_m->get(array('jk' => 2));
@@ -77,18 +77,18 @@ class Main extends MY_Controller {
     function berhasil()
     {
         alert('Vote Berhasil');
-        window.location = 'vote';
+        window.location = 'index';
     }
 
     function salah()
     {
         alert('Voucher yang diinputkan salah');
-        window.location = 'vote';
+        window.location = 'index';
     }
 
     function captcha()
     {
         alert('Captcha salah');
-        window.location = 'vote';
+        window.location = 'index';
     }
 </script>
