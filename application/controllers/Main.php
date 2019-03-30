@@ -31,12 +31,18 @@ class Main extends MY_Controller {
         $this->load->view('template/template', $this->data);
     }
 
-    public function do_vote($id)
+    public function do_vote()
     {
         $this->load->model('voucher_m');
+        $id = $this->POST('id');
         if($this->POST('submit'))
         {
-            
+            if($this->post('captcha')!='Captcha: '.$this->post('cek'))
+            {
+                echo "<script>captcha()</script>";
+                exit;
+            }
+
             if($this->voucher_m->get_num_row(array('id_voucher'=>$this->POST('voucher'))) > 0)
             {
                 $cek = $this->voucher_m->get_row(array('id_voucher'=>$this->POST('voucher')));
@@ -71,12 +77,18 @@ class Main extends MY_Controller {
     function berhasil()
     {
         alert('Vote Berhasil');
-        window.location = '../vote';
+        window.location = 'vote';
     }
 
     function salah()
     {
         alert('Voucher yang diinputkan salah');
-        window.location = '../vote';
+        window.location = 'vote';
+    }
+
+    function captcha()
+    {
+        alert('Captcha salah');
+        window.location = 'vote';
     }
 </script>

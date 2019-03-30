@@ -7,7 +7,7 @@
         $(document).on("click", ".open-modal", function () {
             var Id = $(this).data('id');
             console.log(Id);
-            document.cookie="profile_viewer_uid="+Id;
+            $('.idF').val(Id);
         });
     </script>
 </body>

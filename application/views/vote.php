@@ -36,7 +36,7 @@
                                 <?php $cek = true; foreach ($gadis as $k) { ?>
                                 <div class="carousel-item <?php if($cek) { echo "active"; $cek = false; } ?>">
                                     <?= '<img class="d-block w-100" src="data:image/jpeg;base64,'.base64_encode($k->foto).'">' ?>
-                                    <a type="button" data-id="<?=$k->id_finalis?>" class="open-modal btn btn-md btn-danger w-100 m-0" data-toggle="modal" href="#modalCookie1">
+                                    <a data-id="<?=$k->id_finalis?>" class="open-modal btn btn-md btn-danger w-100 m-0" data-toggle="modal" href="#modalCookie1">
                                         VOTE
                                     </a>
                                 </div>
@@ -63,7 +63,7 @@
             <h3>Modal header</h3>
         </div>
                 <div class="modal-body">
-                    <form action="<?=site_url('main/do_vote/'.$_COOKIE['profile_viewer_uid'])?>" method='POST'>
+                    <form action="<?=site_url('main/do_vote') ?>" method='POST'>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="card my-5">
@@ -76,7 +76,16 @@
                                         <div class="md-form form-group">
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="voucher" required>
+                                                <input type="hidden" name='id' class='idF'>
                                                 <label class="form-label">No Voucher</label>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control" name="captcha" value='<?='Captcha: '.rand(10000,99999)?>' readonly>
+                                        <div class="md-form form-group">
+                                            
+                                            <div class="form-line">
+                                                <label class="form-label">Captcha</label>
+                                                <input type="text" name='cek' class="form-control" required>
                                             </div>
                                         </div>
                                         <input class="btn btn-primary waves-effect" type="submit" name="submit" value="submit">

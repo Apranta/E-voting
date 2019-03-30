@@ -132,7 +132,6 @@ class Admin extends MY_Controller {
                 'jurusan' => $this->POST('jurusan'),
                 'jk' => $this->POST('jk'),
                 'foto' => $gambar,
-                'jml_vote' => 0
             );
             $cek = $this->Data_finalis_m->get("id_finalis = ".$this->POST('id_finalis')." and id_finalis != ".$id);
             if(count($cek)>0){
