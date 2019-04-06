@@ -45,6 +45,7 @@
                             <td>No</td>
                             <td>Kode Voucher</td>
                             <td>Jumlah</td>
+                            <td>Status</td>
                         </tr>
                     </thead>
                     
@@ -57,6 +58,7 @@
                             <td>No</td>
                             <td>Kode Voucher</td>
                             <td>Jumlah</td>
+                            <td>Status</td>
                         </tr>
                     </tfoot>
                 </table>

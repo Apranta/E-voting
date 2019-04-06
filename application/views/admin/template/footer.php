@@ -19,10 +19,15 @@
                     success : function(data) {
                         var html = '';
                         for (let index = 0; index < data.length; index++) {
+                            var sts = 'Belum Terpakai';
+                            if(data[index].status == 1){
+                                sts = 'Sudah Terpakai';
+                            }
                             html += '<tr>'+
                                         '<td>'+(index+1)+'</td>'+
                                         '<td>'+data[index].id_voucher+'</td>'+
                                         '<td>'+data[index].jumlah+'</td>'+
+                                        '<td>'+sts+'</td>'+
                                     '</tr>';
                         } 
                         html += '';
