@@ -42,9 +42,17 @@ class Main extends MY_Controller {
     public function do_vote()
     {
         $this->load->model('voucher_m');
+        $this->load->model('timeline_m');
         $id = $this->POST('id');
         if($this->POST('submit'))
         {
+            $timeline = $this->timeline_m->get();
+            if($timeline[0]->status == 0)
+            {
+                echo "<script>close()</script>";
+                exit;
+            }
+
             if($this->post('captcha')!='Captcha: '.$this->post('cek'))
             {
                 echo "<script>captcha()</script>";
@@ -100,6 +108,11 @@ class Main extends MY_Controller {
     function captcha()
     {
         alert('Captcha salah');
+        window.location = 'index';
+    }
+    function close()
+    {
+        alert('Vote Ditutup');
         window.location = 'index';
     }
 </script>

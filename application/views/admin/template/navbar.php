@@ -16,6 +16,12 @@
                             <a class="nav-link waves-effect font-weight-normal active" href="<?= site_url('admin') ?>">Dashboard</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link waves-effect font-weight-normal active" href="<?= site_url('admin/finalis') ?>">Daftar Finalis</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect font-weight-normal active" href="<?= site_url('admin/timeline') ?>">Timeline</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link waves-effect font-weight-normal d-lg-none d-block" href="<?= site_url('logout') ?>">Logout</a>
                         </li>
                     </ul>
