@@ -24,9 +24,17 @@ class Main extends MY_Controller {
     public function chart()
     {
         $this->data['bujang'] = $this->Data_finalis_m->get(array('jk' => 1));
+        $this->data['jml_bujang'] = 0;
+        foreach ($this->data['bujang'] as $k) {
+            $this->data['jml_bujang'] += $k->jml_vote;
+        }
         $this->data['gadis'] = $this->Data_finalis_m->get(array('jk' => 2));
+        $this->data['jml_gadis'] = 0;
+        foreach ($this->data['gadis'] as $k) {
+            $this->data['jml_gadis'] += $k->jml_vote;
+        }
         $this->data['title'] ='Home | Vote';
-        $this->data['content'] = 'vote';
+        $this->data['content'] = 'chart';
         $this->data['active'] = 1;
         $this->load->view('template/template', $this->data);
     }
