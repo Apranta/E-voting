@@ -39,7 +39,7 @@
 
         <div class="card">
             <div class="card-body">
-                <table id="tabel" class="table table-striped table-bordered">
+                <table id="tabel" class="table table-striped table-bordered display nowrap">
                     <thead class="unique-color-dark text-white">
                         <tr>
                             <td>No</td>

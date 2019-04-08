@@ -72,6 +72,9 @@ class Main extends MY_Controller {
                     echo "<script>salah()</script>";
                     exit;
                 }
+            }else{
+                echo "<script>salah()</script>";
+                exit;
             }
             
         }
