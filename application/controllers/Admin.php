@@ -25,6 +25,7 @@ class Admin extends MY_Controller {
         $this->data['title'] ='Admin | ';
         $this->data['content'] = 'admin/main';
         $this->data['active'] = 0;
+
         $this->load->view('admin/template/template', $this->data);
     }
 
@@ -157,6 +158,32 @@ class Admin extends MY_Controller {
         redirect('Admin/finalis');
     }
 
+    public function timeline()
+    {
+        $this->load->model('timeline_m');
+        $this->data['title'] ='Admin | Timeline';
+        $this->data['content'] = 'admin/timeline';
+        $this->data['active'] = 2;
+        $this->data['timeline'] = $this->timeline_m->get();
+        // print_r($this->data['timeline']);
+        $this->load->view('admin/template/template', $this->data);
+    }
+
+    public function openvote()
+    {
+        $this->load->model('timeline_m');
+        $this->timeline_m->update('timeline',array('status'=>1));
+        $this->session->set_flashdata('msg', '<div class="alert alert-success alert-dismissible fade show" role="alert">open vote<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        redirect('Admin/timeline');
+    }
+
+    public function closevote()
+    {
+        $this->load->model('timeline_m');
+        $this->timeline_m->update('timeline',array('status'=>0));
+        $this->session->set_flashdata('msg', '<div class="alert alert-success alert-dismissible fade show" role="alert">close vote<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        redirect('Admin/timeline');
+    }
 }
 
 /* End of file Admin.php */
