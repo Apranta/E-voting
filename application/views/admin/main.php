@@ -35,7 +35,44 @@
                     </div>
                 </div>
             </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <h3>Hasil Penjualan :</h3>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <?php
+                                $total = 0;
+                                foreach($penjualan as $p)
+                                {
+                                    if($p->jumlah == 5){
+                                        $total+= 5000;
+                                    }
+                                    else if($p->jumlah == 12){
+                                        $total+= 10000;
+                                    }
+                                    else if($p->jumlah == 25){
+                                        $total+= 20000;
+                                    }
+                                    else if($p->jumlah == 60){
+                                        $total+= 50000;
+                                    }
+                                    else if($p->jumlah == 120){
+                                        $total+= 100000;
+                                    }
+                                }
+                            ?>
+                            <input type="text" class="form-control" value="<?="Rp. ".$total?>" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        
+           
+        
 
         <div class="card">
             <div class="card-body">

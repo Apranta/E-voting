@@ -25,6 +25,7 @@ class Admin extends MY_Controller {
         $this->data['title'] ='Admin | ';
         $this->data['content'] = 'admin/main';
         $this->data['active'] = 0;
+        $this->data['penjualan'] = $this->voucher_m->get(array('status'=>1));
 
         $this->load->view('admin/template/template', $this->data);
     }
