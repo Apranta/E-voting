@@ -11,10 +11,10 @@
                         </p>
                         <hr style="height: 0.5px; background-color: gold; border-radius: 5px;">
                         <?php foreach($bujang as $k) { ?>
-                        <h5 style="color: white">
+                        <h6 style="color: white">
                             <?= $k->nama ?>
-                            <span class="text-right"></span>
-                        </h5>
+                            <span class="float-right"><?php if($k->jml_vote != 0) { echo number_format(($k->jml_vote/$jml_bujang*100), 2); } else { echo 0; } ?>%</span>
+                        </h6>
                         <div class="progress mb-3" style="background-color: rgba(0,0,0,0.4)">
                             <div class="progress-bar" role="progressbar" style="width: <?php if($k->jml_vote != 0) { echo ($k->jml_vote/$jml_bujang*100); } else { echo 0; } ?>%; background-color: gold" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
@@ -30,10 +30,10 @@
                         </p>
                         <hr style="height: 0.5px; background-color: gold; border-radius: 5px;">
                         <?php foreach($gadis as $k) { ?>
-                        <h5 style="color: white">
+                        <h6 style="color: white">
                             <?= $k->nama ?>
-                            <span class="text-right"></span>
-                        </h5>
+                            <span class="float-right"><?php if($k->jml_vote != 0) { echo number_format(($k->jml_vote/$jml_gadis*100), 2); } else { echo 0; } ?>%</span>
+                        </h6>
                         <div class="progress mb-3" style="background-color: rgba(0,0,0,0.4)">
                             <div class="progress-bar" role="progressbar" style="width: <?php if($k->jml_vote != 0) { echo ($k->jml_vote/$jml_gadis*100); } else { echo 0; } ?>%; background-color: gold" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>

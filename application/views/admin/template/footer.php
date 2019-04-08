@@ -77,7 +77,7 @@
                     data: {keys:key, jumlah:jml},
                     success: function(data) {
                         $('#key').val("");
-                        key_list();
+                        location.reload();
                     }
                 });
             });
