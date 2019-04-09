@@ -12,23 +12,6 @@ class Login extends MY_Controller {
         echo $this->data['id_role'];
         if (isset($this->data['username'], $this->data['id_role']))
         {
-            $ipaddress = '';
-            if (getenv('HTTP_CLIENT_IP')) {
-                $ipaddress = getenv('HTTP_CLIENT_IP');
-            } else if(getenv('HTTP_X_FORWARDED_FOR')) {
-                $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
-            } else if(getenv('HTTP_X_FORWARDED')) {
-                $ipaddress = getenv('HTTP_X_FORWARDED');
-            } else if(getenv('HTTP_FORWARDED_FOR')) {
-                $ipaddress = getenv('HTTP_FORWARDED_FOR');
-            } else if(getenv('HTTP_FORWARDED')) {
-                $ipaddress = getenv('HTTP_FORWARDED');
-            } else if(getenv('REMOTE_ADDR')) {
-                $ipaddress = getenv('REMOTE_ADDR');
-            } else {
-                $ipaddress = 'UNKNOWN';
-            }
-            $this->log_m->insert(array('ip_address' => $ipaddress, 'waktu' => mdate('%Y-%m-%d %H:%i:%s', now('Asia/Jakarta'))));
             switch ($this->data['id_role'])
             {
                 case 3:
@@ -50,6 +33,7 @@ class Login extends MY_Controller {
         if($this->POST('username') && $this->POST('password')) {
             $this->load->model('admin_m');
             if($this->admin_m->cek_login(array('username' => $this->POST('username'), 'password' => $this->POST('password')))) {
+                $this->log_m->insert(array('ip_addres' => $this->get_ip(), 'waktu' => mdate('%Y-%m-%d %H:%i:%s', now('Asia/Jakarta'))));
                 redirect('Admin');
                 exit;
             } else {
@@ -60,6 +44,27 @@ class Login extends MY_Controller {
         }
         $this->data['title'] = 'Login | ';
         $this->load->view('login', $this->data);
+    }
+
+    public function get_ip()
+    {
+        $ipaddress = '';
+        if (isset($_SERVER['HTTP_CLIENT_IP']))
+            $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+        else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+            $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        else if(isset($_SERVER['HTTP_X_FORWARDED']))
+            $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+        else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+            $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+        else if(isset($_SERVER['HTTP_FORWARDED']))
+            $ipaddress = $_SERVER['HTTP_FORWARDED'];
+        else if(isset($_SERVER['REMOTE_ADDR']))
+            $ipaddress = $_SERVER['REMOTE_ADDR'];
+        else
+            $ipaddress = 'UNKNOWN';
+
+        return $ipaddress;
     }
 
 }

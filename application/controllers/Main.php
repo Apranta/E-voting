@@ -43,6 +43,7 @@ class Main extends MY_Controller {
     {
         $this->load->model('voucher_m');
         $this->load->model('timeline_m');
+        $this->load->model('vote_log_m');
         $id = $this->POST('id');
         if($this->POST('submit'))
         {
@@ -74,6 +75,7 @@ class Main extends MY_Controller {
                     );
                     $this->voucher_m->update($cek->id_voucher,$expVoucher);
                     $this->Data_finalis_m->update($id,$vote);
+                    $this->vote_log_m->insert(array('ip_addres'=>$this->get_client_ip(), 'waktu' => mdate('%Y-%m-%d %H:%i:%s', now('Asia/Jakarta')), 'voucher'=>$this->POST('voucher'), 'captcha'=>$this->post('captcha') ));
                     echo "<script>berhasil()</script>";
                     exit;
                 }else{
@@ -87,6 +89,25 @@ class Main extends MY_Controller {
             
         }
         echo "Access denied";
+    }
+
+    function get_client_ip() {
+        $ipaddress = '';
+        if (getenv('HTTP_CLIENT_IP'))
+            $ipaddress = getenv('HTTP_CLIENT_IP');
+        else if(getenv('HTTP_X_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+        else if(getenv('HTTP_X_FORWARDED'))
+            $ipaddress = getenv('HTTP_X_FORWARDED');
+        else if(getenv('HTTP_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_FORWARDED_FOR');
+        else if(getenv('HTTP_FORWARDED'))
+           $ipaddress = getenv('HTTP_FORWARDED');
+        else if(getenv('REMOTE_ADDR'))
+            $ipaddress = getenv('REMOTE_ADDR');
+        else
+            $ipaddress = 'UNKNOWN';
+        return $ipaddress;
     }
 }
 
