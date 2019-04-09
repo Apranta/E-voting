@@ -9,7 +9,7 @@ class Admin extends MY_Controller {
         $this->load->model('voucher_m');
         $this->data['username'] = $this->session->userdata('username');
         $this->data['id_role']  = $this->session->userdata('id_role');
-        if(!isset($this->data['username']) && $this->data['id_role'] != 2)
+        if(!isset($this->data['username']) || $this->data['id_role'] != 2)
         {
             $this->session->unset_userdata('username');
             $this->session->unset_userdata('id_role');
