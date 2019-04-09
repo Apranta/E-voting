@@ -1,6 +1,6 @@
 
 <main>
-    <div class="container py-5">
+    <div class="container py-4">
         <div class="row my-5 py-5">
             <div class="col-md-6 mb-3 pl-lg-5">
                 <div class="card rounded-0 ml-lg-5" style="background-image: url('<?= base_url() ?>assets/img/background.png'); background-size: cover">
@@ -9,7 +9,7 @@
                             <div class="carousel-inner">
                                 <?php $cek = true; foreach ($bujang as $k) { ?>
                                 <div class="carousel-item <?php if($cek) { echo "active"; $cek = false; } ?>">
-                                    <?= '<img class="d-block w-100" src="data:image/jpeg;base64,'.base64_encode($k->foto).'">' ?>
+                                    <?= '<img class="d-block w-100 mb-1" src="data:image/jpeg;base64,'.base64_encode($k->foto).'">' ?>
                                     <a data-id="<?=$k->id_finalis?>" class="open-modal btn btn-md btn-danger w-100 m-0" data-toggle="modal" data-target="#modalCookie1">
                                         VOTE
                                     </a>
@@ -35,7 +35,7 @@
                             <div class="carousel-inner">
                                 <?php $cek = true; foreach ($gadis as $k) { ?>
                                 <div class="carousel-item <?php if($cek) { echo "active"; $cek = false; } ?>">
-                                    <?= '<img class="d-block w-100" src="data:image/jpeg;base64,'.base64_encode($k->foto).'">' ?>
+                                    <?= '<img class="d-block w-100 mb-1" src="data:image/jpeg;base64,'.base64_encode($k->foto).'">' ?>
                                     <a data-id="<?=$k->id_finalis?>" class="open-modal btn btn-md btn-danger w-100 m-0" data-toggle="modal" href="#modalCookie1">
                                         VOTE
                                     </a>

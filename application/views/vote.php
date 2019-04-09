@@ -9,7 +9,7 @@
                             <div class="carousel-inner">
                                 <?php $cek = true; foreach ($bujang as $k) { ?>
                                 <div class="carousel-item <?php if($cek) { echo "active"; $cek = false; } ?>">
-                                    <?= '<img class="d-block w-100" src="data:image/jpeg;base64,'.base64_encode($k->foto).'">' ?>
+                                    <?= '<img class="d-block w-100 mb-3" src="data:image/jpeg;base64,'.base64_encode($k->foto).'">' ?>
                                     <a data-id="<?=$k->id_finalis?>" class="open-modal btn btn-md btn-danger w-100 m-0" data-toggle="modal" data-target="#modalCookie1">
                                         VOTE
                                     </a>
