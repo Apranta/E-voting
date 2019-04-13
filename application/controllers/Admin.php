@@ -6,6 +6,7 @@ class Admin extends MY_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('session');
         $this->load->model('voucher_m');
         $this->data['username'] = $this->session->userdata('username');
         $this->data['id_role']  = $this->session->userdata('id_role');
