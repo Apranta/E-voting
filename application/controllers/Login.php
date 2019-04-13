@@ -8,7 +8,6 @@ class Login extends MY_Controller {
         $this->load->model('log_m');
         $this->data['username'] = $this->session->userdata('username');
         $this->data['id_role']  = $this->session->userdata('id_role');
-        echo $this->data['id_role'];
         if (isset($this->data['username'], $this->data['id_role']))
         {
             switch ($this->data['id_role'])
