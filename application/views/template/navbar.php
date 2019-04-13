@@ -1,7 +1,7 @@
     <header>    
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" style="background: url('<?= base_url() ?>assets/img/background.png'); background-size: cover; border-bottom: 1px solid #f1d565;">
             <div class="container-fluid">
-                <a href="<?= site_url('user') ?>" class="navbar-brand d-block d-lg-block d-md-none">
+                <a href="<?= site_url('main') ?>" class="navbar-brand d-block d-lg-block d-md-none">
                     <img src="<?= base_url() ?>assets/img/bujangGadis.png" height="45">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
