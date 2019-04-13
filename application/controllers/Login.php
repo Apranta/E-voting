@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Login extends MY_Controller {
-
     public function __construct()
     {
         parent::__construct();
@@ -27,7 +25,6 @@ class Login extends MY_Controller {
             exit;
         }
     }
-
     public function index()
     {
         if($this->POST('username') && $this->POST('password')) {
@@ -42,7 +39,6 @@ class Login extends MY_Controller {
                     redirect('Panitia');
                     exit;
                 }
-                
             } else {
                 $this->session->set_flashdata('msg', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Username/Password</strong> Salah<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 redirect('login');
@@ -52,7 +48,6 @@ class Login extends MY_Controller {
         $this->data['title'] = 'Login | ';
         $this->load->view('login', $this->data);
     }
-
     public function get_ip()
     {
         $ipaddress = '';
