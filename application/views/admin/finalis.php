@@ -38,6 +38,7 @@
                                 ?></td>
                                 <td><?= '<img class="d-block w-100" src="data:image/jpeg;base64,'.base64_encode($f->foto).'">' ?></td>
                                 <td><?=$f->jml_vote?></td>
+                                <td><?=$f->grafik?></td>
                                 <td class="text-center">
                                     <a href="<?= site_url('admin/edit_finalis/'.$f->id_finalis)?>" class="btn btn-amber btn-sm mr-auto px-3 m-0">
                                         <i class="fas fa-pen"></i>
@@ -46,7 +47,7 @@
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
-                                <td><?=$f->grafik?></td>
+                                
                             </tr>
                             <?php } ?>
                         </tbody>

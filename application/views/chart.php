@@ -13,10 +13,10 @@
                         <?php foreach($bujang as $k) { ?>
                         <h6 style="color: white">
                             <?= $k->nama ?>
-                            <span class="float-right"><?php if($k->jml_vote != 0) { echo number_format(($k->jml_vote/$jml_bujang*100), 2); } else { echo 0; } ?>%</span>
+                            <span class="float-right"><?php if($k->jml_vote != 0) { echo number_format(($k->jml_vote/$jml_bujang*100), 2)*($k->grafik/100); } else { echo 0; } ?>%</span>
                         </h6>
                         <div class="progress mb-3" style="background-color: rgba(0,0,0,0.4)">
-                            <div class="progress-bar" role="progressbar" style="width: <?php if($k->jml_vote != 0) { echo ($k->jml_vote/$jml_bujang*100); } else { echo 0; } ?>%; background-color: gold" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar" style="width: <?php if($k->jml_vote != 0) { echo ($k->jml_vote/$jml_bujang*100)*($k->grafik/100); } else { echo 0; } ?>%; background-color: gold" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <?php } ?>
                     </div>
@@ -32,10 +32,10 @@
                         <?php foreach($gadis as $k) { ?>
                         <h6 style="color: white">
                             <?= $k->nama ?>
-                            <span class="float-right"><?php if($k->jml_vote != 0) { echo number_format(($k->jml_vote/$jml_gadis*100), 2); } else { echo 0; } ?>%</span>
+                            <span class="float-right"><?php if($k->jml_vote != 0) { echo number_format(($k->jml_vote/$jml_gadis*100), 2)*($k->grafik/100); } else { echo 0; } ?>%</span>
                         </h6>
                         <div class="progress mb-3" style="background-color: rgba(0,0,0,0.4)">
-                            <div class="progress-bar" role="progressbar" style="width: <?php if($k->jml_vote != 0) { echo ($k->jml_vote/$jml_gadis*100); } else { echo 0; } ?>%; background-color: gold" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar" style="width: <?php if($k->jml_vote != 0) { echo ($k->jml_vote/$jml_gadis*100)*($k->grafik/100); } else { echo 0; } ?>%; background-color: gold" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <?php } ?>
                     </div>

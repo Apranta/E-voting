@@ -45,6 +45,13 @@
                                     <option value="2" <?php if($data->jk == '2') echo "selected=selected"?>>Gadis</option>
                                 </select>
                             </div>
+
+                            <div class="md-form form-group">
+                                <div class="form-line">
+                                    <input type="text" name="grafik" value='<?=$data->grafik?>'   class="form-control"  required>
+                                    <label class="form-label">Grafik</label>
+                                </div>
+                            </div>
                             
                             <div class="form-group">
                                 <div class="custom-file">

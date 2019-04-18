@@ -135,6 +135,7 @@ class Admin extends MY_Controller {
                 'jurusan' => $this->POST('jurusan'),
                 'jk' => $this->POST('jk'),
                 'foto' => $gambar,
+                'grafik'=>$this->post('grafik')
             );
             $cek = $this->Data_finalis_m->get("id_finalis = ".$this->POST('id_finalis')." and id_finalis != ".$id);
             if(count($cek)>0){
