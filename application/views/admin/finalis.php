@@ -19,6 +19,7 @@
                                 <td>Jenis Kelamin</td>
                                 <td>Foto</td>
                                 <td>Jumlah Vote</td>
+                                <td>Grafik</td>
                                 <td>Actions</td>
                             </tr>
                         </thead>
@@ -45,6 +46,7 @@
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
+                                <td><?=$f->grafik?></td>
                             </tr>
                             <?php } ?>
                         </tbody>
@@ -56,6 +58,7 @@
                                 <td>Jenis Kelamin</td>
                                 <td>Foto</td>
                                 <td>Jumlah Vote</td>
+                                <td>Grafik</td>
                                 <td>Actions</td>
                             </tr>
                         </tfoot>
